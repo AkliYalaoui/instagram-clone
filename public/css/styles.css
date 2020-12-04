@@ -1,0 +1,426 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 1.4rem;
+    background-color: #fafafa;
+    min-height: 100vh;
+}
+.header{
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    height: 6rem;
+}
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px;
+    height: 100%;
+    margin: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.nav-brand{
+    width: 10rem;
+}
+.nav-brand img{
+    width: 100%;
+}
+.nav-bar .nav-links{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.nav-bar .nav-links .form-item input{
+    background-color: #fafafa;
+    outline: none;
+    border: 1px solid #ccc;
+    padding: .7rem 1rem;
+}
+.nav-bar .nav-links .nav-item{
+    margin-left: 1.5rem;
+}
+.nav-bar .nav-links .nav-item img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+#profile_menu{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.sub-links-container{
+    position: relative;
+}
+.sub-nav-links{
+    display: none;
+    position: absolute;
+    bottom: -115px;
+    left: -143px;
+    background-color: #fff;
+    padding: 1rem .5rem;
+    list-style: none;
+    width: 200px;
+    z-index: 2;
+    box-shadow: 3px 2px 12px 0px rgba(0,0,0,.3);
+    border-radius: .7rem;
+}
+.sub-nav-links.open{
+    display: block;
+}
+.sub-nav-links .nav-item{
+    margin-left: 0 !important;
+}
+.sub-nav-links .nav-form{
+    border-top: 1px solid #ddd;
+}
+.sub-nav-links .nav-form input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: start;
+    padding: .5rem;
+}
+.sub-nav-links a{
+    text-decoration: none;
+    color: #222;
+    padding:.5rem;
+    display: block;
+}
+.auth-link{
+    background-color: #2196F3;
+    color: #fff;
+    padding: 1rem;
+    border-radius: .4rem;
+    text-decoration: none;
+}
+
+/*Auth Pages*/
+.auth-form-container{
+    background-color: #fff;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    margin: 4rem auto;
+    max-width: 700px;
+}
+
+.auth-form-container form{
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+    overflow: hidden;
+}
+.auth-form-container form label{
+    position: relative;
+}
+.auth-form-container form label:after{
+    content: "";
+    position: absolute;
+    bottom: -45px;
+    left: 0;
+    background-color: #2196F3;
+    width: 100%;
+    height: 2px;
+    transform: translateX(-100%);
+    transition: transform .65s;
+}
+.auth-form-container form  label.focused:after{
+    transform: translateX(0);
+}
+.auth-form-container form input{
+    outline: none;
+    border: 1px solid #ddd;
+    padding: 1rem 1.5rem;
+    font-family: inherit;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+}
+.auth-form-container form input[type="submit"]{
+    background-color: #2196F3;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+.error{
+    color: #ed4956;
+    margin-bottom: 3rem;
+    border-radius: .5rem;
+}
+/*Guest Page*/
+.guest-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+    padding: 1rem 2rem;
+}
+.intro{
+    flex: 1;
+    color: #333;
+    background-color: #fff;
+    padding: 2rem;
+    margin: 50px auto 0;
+    border-radius: 1rem;
+    border: 1px solid #ccc;
+    line-height: 1.7;
+    min-width: 300px;
+    max-width: 400px;
+}
+.guest-page{
+    background-size: 454px 618px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 618px;
+    min-width: 454px;
+    position: relative;
+    margin: 50px auto 20px;
+}
+@media screen and (max-width: 794px){
+    .guest-page{
+        order: 1;
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width: 474px){
+    .guest-page{
+        display: none;
+    }
+}
+.guest-page img{
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    transition: opacity 1s;
+    animation-name: animate;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.guest-page img:first-of-type{
+    animation-delay: 6s;
+}
+.guest-page img:nth-of-type(2){
+    animation-delay: 4s;
+}
+.guest-page img:nth-of-type(3){
+    animation-delay: 2s;
+}
+.guest-page img:nth-of-type(4){
+    animation-delay: 0s;
+}
+@keyframes animate {
+    0% {
+        opacity:1;
+    }
+    17% {
+        opacity:1;
+    }
+    25% {
+        opacity:0;
+    }
+    92% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+/*Home Page*/
+.main-container{
+    max-width: 500px;
+    margin: 40px auto;
+    padding-left: 1.5rem;
+}
+.post{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 4rem;
+}
+.post a{
+    text-decoration: none;
+    color: black;
+}
+.post a:hover{
+    text-decoration: underline;
+}
+.post header{
+    display: flex;
+    align-items: center;
+    padding: .7rem 1rem;
+    font-size: 1.3rem;
+    margin-bottom: .5rem;
+}
+.post header img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+.post main .image img{
+    width: 100%;
+}
+.post main .image{
+    border-bottom: 1px solid #eee;
+}
+.post main .post-control{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+.post main .post-control button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.post main .post-control form{
+    margin-right: 1rem;
+}
+.post .likes{
+    padding-left: 1rem;
+}
+.post .post-caption{
+    margin-bottom: 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: baseline;
+}
+.post .post-caption h3{
+    padding-right: 1rem;
+}
+.post footer form{
+    display: flex;
+    margin-bottom: .5rem;
+    border-top: 1px solid #ddd;
+    padding-top: .5rem;
+}
+.post footer input[type="text"]{
+    flex: 1;
+    outline: none;
+    border: none;
+    padding: 1rem;
+}
+.post footer input[type="submit"]{
+    color: #2196F3;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/*Profile Page Styles*/
+.profile-container{
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 1rem;
+}
+.profile-user{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+.profile-user  img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.profile-user .profile-stats > span{
+    font-style: oblique;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-right: 2rem;
+}
+.profile-user .profile-stats > form{
+    display: inline-flex;
+}
+.profile-user .profile-stats > form input{
+    background-color: #0095f6;
+    color: #fff;
+    border: 1px solid #0095f6;
+    outline: none;
+    cursor: pointer;
+    padding: .8rem 1.5rem;
+}
+.profile-user .profile-stats > a{
+    text-decoration: none;
+    color: #333;
+    background-color: transparent;
+    padding: .5rem 1rem;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+}
+
+.profile-user .numbers{
+    margin-top: 1.5rem;
+}
+.profile-user .numbers span{
+    margin-right: 1rem;
+}
+
+.profile-user .profile-stats h2{
+    margin-top: 1.5rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+.profile-container hr{
+    border:1px solid #e4dcdc;
+}
+.profile-container .all-posts{
+    text-align: center;
+}
+.profile-container .all-posts span{
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 500;
+    font-style: italic;
+    text-transform: uppercase;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.profile-container .all-posts .images-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 1rem;
+}
+.profile-container .all-posts .images-container img{
+   width: 300px;
+    padding: 1rem;
+    border: 1px solid #eee;
+    margin: 1rem;
+}
+/*Add Post Styles*/
+.add_post{
+    line-height: 5rem;
+}
+.add_post a{
+    text-decoration: none;
+    font-size: 5rem;
+    color: black;
+}
+.post-title{
+    color: #6e6e6e;
+    text-align: center;
+    margin-bottom: 2rem;
+}
