@@ -45,7 +45,9 @@
                     </footer>
                 </div>
             @empty
-                There Is No Posts To Show
+                <div style="text-align: center;margin-top: 150px;">
+                    <img src="./img/nopost.png" alt="no post available">
+                </div>
             @endforelse
         </div>
     </div>

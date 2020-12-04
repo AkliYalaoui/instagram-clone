@@ -36,11 +36,13 @@
             <span>Posts</span>
             <div class="images-container">
                 @forelse($posts as $post)
-                    <a href="">
+                    <a href="{{ route('post.show',$post->id) }}">
                         <img src="{{asset('/storage/'.(substr($post->image,7)))}}" alt="profile Image">
                     </a>
                 @empty
-                    You Have No Posts
+                    <div style="text-align: center;">
+                        <img src="../img/nopost.png" alt="no post available">
+                    </div>
                 @endforelse
             </div>
         </div>

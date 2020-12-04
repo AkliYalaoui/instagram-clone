@@ -14,6 +14,9 @@ class PostController extends Controller
     {
         $this->middleware('auth');
     }
+    public function show(Post $post){
+        return view('post.show',['post' => $post]);
+    }
     public function index(){
 
         $following = Profile::where('follower',auth()->user()->id)->get();

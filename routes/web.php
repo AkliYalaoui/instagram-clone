@@ -24,6 +24,7 @@ Route::post('/follow/{id}',[ProfileController::class,'store'])->name('follow');
 Route::post('/unfollow/{id}',[ProfileController::class,'destroy'])->name('unfollow');
 
 Route::get('/post/create',[PostController::class,'create'])->name('post');
+Route::get('/post/{post}',[PostController::class,'show'])->name('post.show');
 Route::post('/post',[PostController::class,'store'])->name('post.store');
 
 Route::get('/', [PostController::class,'index']);
