@@ -13,7 +13,7 @@
                                     {{ $post->user->username }}
                                 </a>
                             </h3>
-                            <span>instagram</span>
+                            <span>{{$post->created_at->diffForHumans()}}</span>
                         </div>
                     </header>
                     <main>
@@ -36,10 +36,32 @@
                             </h3>
                             <span>{{ $post->caption }}</span>
                         </div>
+                        <div class="comments-all-container">
+                            <h3>{{ count($post->comments) }} comments . <span data-id="show-all-comments" data-text="hide">Show All</span></h3>
+                            <div class="comments">
+                                @forelse($post->comments as $comment)
+                                    <div class="comment">
+                                        <h5>
+                                            <a href="{{ route('users',$comment->user->username ) }}">{{ $comment->user->username}}</a>
+                                        </h5>
+                                        <p>{{ $comment->comment }}</p>
+                                        <time datetime="{{ $comment->created_at }}">{{ $comment->created_at->diffForHumans() }}</time>
+                                    </div>
+                                @empty
+                                    Be The First To Comment This Post
+                                @endforelse
+                            </div>
+                        </div>
                     </main>
                     <footer>
-                        <form action="">
-                            <input type="text" name="comment" placeholder="Write Your Comment">
+                        <form action="{{route('comment',$post)}}" method="post">
+                            @csrf
+                            <input type="text" name="comment" placeholder="Write Your Comment" value="{{ old('comment','') }}" required>
+                                @error('comment')
+                                <div class="error comment-err">
+                                    {{$message}}
+                                </div>
+                                @enderror
                             <input type="submit" value="post">
                         </form>
                     </footer>

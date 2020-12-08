@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -26,5 +27,7 @@ Route::post('/unfollow/{id}',[ProfileController::class,'destroy'])->name('unfoll
 Route::get('/post/create',[PostController::class,'create'])->name('post');
 Route::get('/post/{post}',[PostController::class,'show'])->name('post.show');
 Route::post('/post',[PostController::class,'store'])->name('post.store');
+
+Route::post('/comment/{id}/create',[CommentController::class,'store'])->name('comment');
 
 Route::get('/', [PostController::class,'index']);

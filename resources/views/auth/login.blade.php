@@ -11,7 +11,7 @@
             @csrf
 
             <label for="username">Username :</label>
-            <input type="text" id="username" name="username" placeholder="Enter Your Username ..." data-focus="true">
+            <input type="text" id="username" name="username" placeholder="Enter Your Username ..." value="{{ old('username','') }}" data-focus="true">
                 @error('username')
                     <div class="error">
                         {{$message}}

@@ -299,7 +299,6 @@ body{
     padding-left: 1rem;
 }
 .post .post-caption{
-    margin-bottom: 1rem;
     padding: 1rem;
     display: flex;
     align-items: baseline;
@@ -312,12 +311,13 @@ body{
     margin-bottom: .5rem;
     border-top: 1px solid #ddd;
     padding-top: .5rem;
+    position: relative;
 }
 .post footer input[type="text"]{
     flex: 1;
     outline: none;
     border: none;
-    padding: 1rem;
+    padding: 1rem 1rem 2rem;
 }
 .post footer input[type="submit"]{
     color: #2196F3;
@@ -325,11 +325,55 @@ body{
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 1rem;
+    padding: 1rem 1rem 2rem;
     font-size: 1.5rem;
     font-weight: bold;
 }
-
+.comment-err{
+    position: absolute;
+    bottom: -29px;
+    left: 0;
+    text-align: center;
+    width: 100%;
+}
+.comments-all-container h3{
+    color: #333;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: .5rem 1rem;
+}
+.comments-all-container h3 span{
+    cursor: pointer;
+}
+.comments-all-container h3 span:hover{
+    text-decoration: underline;
+}
+.comments-all-container .comments{
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 1rem;
+}
+.comments-all-container .comments .comment:not(:first-of-type){
+    display: none;
+}
+.comments-all-container .comments.show .comment:not(:first-of-type){
+    display: block;
+}
+.comments-all-container .comment{
+    padding: .5rem .5rem 1rem;
+    margin-bottom: 1rem;
+}
+.comments-all-container .comment p{
+    padding-left: 1rem;
+    padding-bottom: .8rem;
+}
+.comments-all-container .comment time{
+    display: block;
+    float: right;
+    color: #666;
+    font-size: 1.3rem;
+}
 /*Profile Page Styles*/
 .profile-container{
     max-width: 700px;

@@ -10,14 +10,14 @@
         <form action="{{ route('register') }}" method="post">
             @csrf
             <label for="name">Name :</label>
-            <input type="text" id="name" name="name" placeholder="Enter Your Name ..." data-focus="true">
+            <input type="text" id="name" name="name" placeholder="Enter Your Name ..." value="{{ old('name','') }}" data-focus="true">
                 @error('name')
                     <div class="error">
                         {{$message}}
                     </div>
                 @enderror
             <label for="username">Username :</label>
-            <input type="text" id="username" name="username" placeholder="Enter Your Username ..." data-focus="true">
+            <input type="text" id="username" name="username" placeholder="Enter Your Username ..." value="{{ old('username','') }}" data-focus="true">
                 @error('username')
                     <div class="error">
                         {{$message}}
